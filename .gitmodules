@@ -1,0 +1,3 @@
+[submodule "Bunk-Engine/dependencies/spdlog"]
+	path = Bunk-Engine/dependencies/spdlog
+	url = https://github.com/gabime/spdlog
