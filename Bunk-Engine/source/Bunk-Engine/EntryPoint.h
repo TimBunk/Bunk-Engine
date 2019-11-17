@@ -14,4 +14,6 @@ int main(int argc, char** argv) {
 	delete app;
 }
 
+#else
+	#error Bunk-Engine so far only supports windows x64
 #endif // _WIN64

@@ -20,21 +20,40 @@ namespace bnk {
 
 }
 
-// Core log macros
-#define BNK_CORE_TRACE(...)		::bnk::Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define BNK_CORE_DEBUG(...)		::bnk::Log::GetCoreLogger()->debug(__VA_ARGS__)
-#define BNK_CORE_INFO(...)		::bnk::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define BNK_CORE_WARN(...)		::bnk::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define BNK_CORE_ERROR(...)		::bnk::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define BNK_CORE_CRITICAL(...)	::bnk::Log::GetCoreLogger()->critical(__VA_ARGS__)
+// If it is not the distrubtion build then enable loggin
+#ifndef BNK_DISTRIBUTION
+	// Core log macros
+	#define BNK_CORE_TRACE(...)		::bnk::Log::GetCoreLogger()->trace(__VA_ARGS__)
+	#define BNK_CORE_DEBUG(...)		::bnk::Log::GetCoreLogger()->debug(__VA_ARGS__)
+	#define BNK_CORE_INFO(...)		::bnk::Log::GetCoreLogger()->info(__VA_ARGS__)
+	#define BNK_CORE_WARN(...)		::bnk::Log::GetCoreLogger()->warn(__VA_ARGS__)
+	#define BNK_CORE_ERROR(...)		::bnk::Log::GetCoreLogger()->error(__VA_ARGS__)
+	#define BNK_CORE_CRITICAL(...)	::bnk::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
-// Client log macros
-#define BNK_TRACE(...)		::bnk::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define BNK_DEBUG(...)		::bnk::Log::GetClientLogger()->debug(__VA_ARGS__)
-#define BNK_INFO(...)		::bnk::Log::GetClientLogger()->info(__VA_ARGS__)
-#define BNK_WARN(...)		::bnk::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define BNK_ERROR(...)		::bnk::Log::GetClientLogger()->error(__VA_ARGS__)
-#define BNK_CRITICAL(...)	::bnk::Log::GetClientLogger()->critical(__VA_ARGS__)
+	// Client log macros
+	#define BNK_TRACE(...)		::bnk::Log::GetClientLogger()->trace(__VA_ARGS__)
+	#define BNK_DEBUG(...)		::bnk::Log::GetClientLogger()->debug(__VA_ARGS__)
+	#define BNK_INFO(...)		::bnk::Log::GetClientLogger()->info(__VA_ARGS__)
+	#define BNK_WARN(...)		::bnk::Log::GetClientLogger()->warn(__VA_ARGS__)
+	#define BNK_ERROR(...)		::bnk::Log::GetClientLogger()->error(__VA_ARGS__)
+	#define BNK_CRITICAL(...)	::bnk::Log::GetClientLogger()->critical(__VA_ARGS__)
+#else
+	// Core log macros
+	#define BNK_CORE_TRACE(...)
+	#define BNK_CORE_DEBUG(...)
+	#define BNK_CORE_INFO(...)
+	#define BNK_CORE_WARN(...)
+	#define BNK_CORE_ERROR(...)
+	#define BNK_CORE_CRITICAL(...)
+
+	// Client log macros
+	#define BNK_TRACE(...)
+	#define BNK_DEBUG(...)
+	#define BNK_INFO(...)
+	#define BNK_WARN(...)
+	#define BNK_ERROR(...)
+	#define BNK_CRITICAL(...)
+#endif
 
 /* Example
 int a = 2;
