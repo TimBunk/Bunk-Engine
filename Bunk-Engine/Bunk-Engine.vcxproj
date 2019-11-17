@@ -58,6 +58,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PreprocessorDefinitions>BNK_BUILD_DLL;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Bunk-Engine\dependencies\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -72,6 +73,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)Bunk-Engine\dependencies\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -80,9 +82,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Bunk-Engine\Log.cpp" />
     <ClCompile Include="source\Bunk-Engine\Application.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\Bunk-Engine\Log.h" />
     <ClInclude Include="source\Bunk-Engine\Application.h" />
     <ClInclude Include="source\Bunk-Engine\Core.h" />
     <ClInclude Include="source\Bunk-Engine\EntryPoint.h" />

@@ -7,6 +7,8 @@
 extern bnk::Application* bnk::CreateApplication();
 
 int main(int argc, char** argv) {
+	bnk::Log::Init();
+
 	auto app = bnk::CreateApplication();
 	app->Run();
 	delete app;
