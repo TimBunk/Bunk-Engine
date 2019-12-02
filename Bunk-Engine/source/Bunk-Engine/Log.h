@@ -29,6 +29,7 @@ namespace bnk {
 	#define BNK_CORE_WARN(...)		::bnk::Log::GetCoreLogger()->warn(__VA_ARGS__)
 	#define BNK_CORE_ERROR(...)		::bnk::Log::GetCoreLogger()->error(__VA_ARGS__)
 	#define BNK_CORE_CRITICAL(...)	::bnk::Log::GetCoreLogger()->critical(__VA_ARGS__)
+	#define BNK_CORE_ASSERT(expression, ...) if (!expression) { BNK_CORE_CRITICAL(__VA_ARGS__);assert(0); }
 
 	// Client log macros
 	#define BNK_TRACE(...)		::bnk::Log::GetClientLogger()->trace(__VA_ARGS__)
@@ -37,6 +38,7 @@ namespace bnk {
 	#define BNK_WARN(...)		::bnk::Log::GetClientLogger()->warn(__VA_ARGS__)
 	#define BNK_ERROR(...)		::bnk::Log::GetClientLogger()->error(__VA_ARGS__)
 	#define BNK_CRITICAL(...)	::bnk::Log::GetClientLogger()->critical(__VA_ARGS__)
+	#define BNK_ASSERT(expression, ...) if (!expression) { BNK_CRITICAL(__VA_ARGS__);assert(0); }
 #else
 	// Core log macros
 	#define BNK_CORE_TRACE(...)
@@ -45,6 +47,7 @@ namespace bnk {
 	#define BNK_CORE_WARN(...)
 	#define BNK_CORE_ERROR(...)
 	#define BNK_CORE_CRITICAL(...)
+	#define BNK_CORE_ASSERT(expression, ...)
 
 	// Client log macros
 	#define BNK_TRACE(...)
@@ -53,6 +56,7 @@ namespace bnk {
 	#define BNK_WARN(...)
 	#define BNK_ERROR(...)
 	#define BNK_CRITICAL(...)
+	#define BNK_ASSERT(expression, ...)
 #endif
 
 /* Example
@@ -60,4 +64,5 @@ int a = 2;
 int b = 1;
 BNK_CORE_TRACE("trace{1}{0}", a, b);
 RESULT = 'trace12'
+BNK_CORE_ASSERT(1==0, "Error {0} does not equal {1}", 1, 0);
 */
