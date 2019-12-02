@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
 	BNK_CORE_ERROR("Error");
 	BNK_CORE_WARN("Warn");
 	BNK_CORE_DEBUG("DEBUG");
-	BNK_CORE_ASSERT(NULL!=NULL, "Does this work?");
+	//BNK_CORE_ASSERT(NULL!=NULL, "Does this work?");
 
 	auto app = bnk::CreateApplication();
 	app->Run();
