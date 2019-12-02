@@ -9,3 +9,6 @@
 #else
 	#error Bunk-Engine so far only supports windows x64
 #endif // _WIN64
+
+#pragma warning( push )
+#pragma warning( disable : 4251 )
